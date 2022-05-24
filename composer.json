@@ -7,12 +7,37 @@
     ],
     "license": "MIT",
     "require": {
-        "php": ">=7.1.0"
+        "php": "^8.0",
+        "laravel/nova": "^4.0",
+        "illuminate/contracts": "^9.0"
     },
+    "require-dev": {
+        "nunomaduro/collision": "^6.2",
+        "orchestra/testbench": "^7.0",
+        "phpunit/phpunit": "^9.0",
+        "pestphp/pest": "^1.21",
+        "pestphp/pest-plugin-laravel": "^1.1",
+        "phpstan/extension-installer": "^1.1"
+    },
+    "repositories": [
+        {
+          "type": "composer",
+          "url": "https://nova.laravel.com"
+        }
+      ],
     "autoload": {
         "psr-4": {
             "Soap\\VimeoVideoManager\\": "src/"
         }
+    },
+    "autoload-dev": {
+        "psr-4": {
+          "Soap\\VimeoVideoManager\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/pest",
+        "test-coverage": "vendor/bin/pest --coverage"
     },
     "extra": {
         "laravel": {
@@ -22,7 +47,11 @@
         }
     },
     "config": {
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "phpstan/extension-installer": true
+        }
     },
     "minimum-stability": "dev",
     "prefer-stable": true
